@@ -30,17 +30,17 @@ const reveal = (delay = 0) => ({
 
 export function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-[1100px] px-6 pt-[180px] pb-[100px] text-center">
+    <section id="about" className="relative mx-auto max-w-[1100px] px-6 pt-40 pb-32 text-center">
       <motion.p
         {...reveal()}
-        className="text-[11px] font-medium uppercase tracking-[0.25em] text-white/30"
+        className="text-base font-medium uppercase tracking-[0.2em] text-[#A1A1AA]"
       >
         About
       </motion.p>
 
       <motion.h2
         {...reveal(0.08)}
-        className="mx-auto mt-5 max-w-[780px] text-[clamp(1.6rem,3.5vw,2.6rem)] font-semibold leading-[1.2] tracking-[-0.03em] text-white"
+        className="mx-auto mt-6 max-w-[780px] text-[clamp(1.6rem,3.5vw,2.6rem)] font-semibold leading-[1.2] tracking-[-0.03em] text-white"
       >
         A student early in his career, already building real
         products with real teams.
@@ -48,7 +48,7 @@ export function About() {
 
       <motion.p
         {...reveal(0.16)}
-        className="mx-auto mt-6 max-w-2xl text-[16px] leading-[1.8] text-[#A0A0A0]"
+        className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#A1A1AA]"
       >
         I&apos;m completing both a high school diploma and an Associate of Arts
         at Bellevue College through Running Start. Next fall I join the
@@ -58,11 +58,12 @@ export function About() {
       </motion.p>
 
       <div className="mt-16 grid grid-cols-12 gap-4">
+        {/* Portrait */}
         <motion.div
           {...reveal(0.12)}
-          className="col-span-12 overflow-hidden rounded-[10px] md:col-span-5"
+          className="col-span-12 overflow-hidden rounded-xl md:col-span-5"
         >
-          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[10px]">
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl">
             <Image
               src="/portrait.png"
               alt="Portrait of Ibrahiim Muhamud"
@@ -72,16 +73,17 @@ export function About() {
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
-              <p className="text-[14px] font-medium text-white">
+              <p className="text-base font-medium text-white">
                 Ibrahiim Muhamud
               </p>
-              <p className="mt-0.5 text-[12px] text-white/50">
+              <p className="mt-1 text-base text-[#A1A1AA]">
                 Redmond, WA
               </p>
             </div>
           </div>
         </motion.div>
 
+        {/* Facts grid — Layer 1 surface (#111111) */}
         <div className="col-span-12 grid grid-cols-2 gap-4 md:col-span-7">
           {[
             { icon: MapPin, label: "Based", value: "Redmond, WA" },
@@ -92,13 +94,13 @@ export function About() {
             <motion.div
               key={f.label}
               {...reveal(0.14 + i * 0.06)}
-              className="rounded-[10px] border border-white/[0.05] bg-white/[0.03] p-6 text-left backdrop-blur-sm"
+              className="rounded-xl border border-white/[0.08] bg-[#111111] p-6 text-left"
             >
-              <f.icon className="mb-3 h-5 w-5 text-white/30" />
-              <p className="text-[11px] uppercase tracking-[0.2em] text-white/30">
+              <f.icon className="mb-3 h-5 w-5 text-[#A1A1AA]" />
+              <p className="text-base uppercase tracking-[0.15em] text-[#A1A1AA]">
                 {f.label}
               </p>
-              <p className="mt-1.5 text-[15px] font-medium text-white/90">
+              <p className="mt-2 text-lg font-medium text-white">
                 {f.value}
               </p>
             </motion.div>
@@ -110,9 +112,8 @@ export function About() {
 }
 
 /* ═══════════════════════════════════════════════════════
-   PROJECTS — block-news bento grid replica
-   Exact aspect-[1052/1117], staggered col-start/span,
-   glassmorphic cards with hover:scale-[1.02]
+   PROJECTS — block-news bento grid
+   aspect-[1052/1117], glassmorphic Layer 1 cards
    ═══════════════════════════════════════════════════════ */
 
 type ProjectItem = {
@@ -165,7 +166,7 @@ const projects: ProjectItem[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-[1100px] px-6 pt-[180px]">
+    <section id="projects" className="relative mx-auto max-w-[1100px] px-6 py-32">
       <div className="text-center">
         <motion.h2
           {...reveal()}
@@ -173,7 +174,7 @@ export function Projects() {
         >
           Latest work
           <br />
-          <em className="font-light not-italic text-white/40">
+          <em className="font-light not-italic text-[#A1A1AA]">
             Projects. Systems. Prototypes.
           </em>
         </motion.h2>
@@ -193,24 +194,25 @@ export function Projects() {
               i > 0 && "mt-[90px] md:mt-0"
             )}
           >
+            {/* Card — Layer 1 surface */}
             <div
-              className="relative w-full overflow-hidden rounded-[10px] border border-white/[0.05] bg-black/40 backdrop-blur-md"
+              className="relative w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#111111]"
               style={{ aspectRatio: "1052 / 1117" }}
             >
               <div className="flex h-full w-full items-center justify-center p-10">
-                <p className="max-w-[280px] text-center text-[15px] leading-[1.7] text-white/50">
+                <p className="max-w-[300px] text-center text-base leading-relaxed text-[#A1A1AA]">
                   {p.description}
                 </p>
               </div>
             </div>
 
-            <h3 className="my-[1em] text-[clamp(1.1rem,2vw,1.4rem)] font-semibold leading-[1.3] tracking-[-0.02em] text-white">
+            <h3 className="my-5 text-[clamp(1.1rem,2vw,1.4rem)] font-semibold leading-[1.3] tracking-[-0.02em] text-white">
               {p.title}
             </h3>
 
             <div className="flex items-end justify-between">
               <span className="tag">{p.tag}</span>
-              <p className="text-[12px] text-white/30">{p.meta}</p>
+              <p className="text-base text-[#A1A1AA]">{p.meta}</p>
             </div>
           </motion.article>
         ))}
@@ -299,7 +301,7 @@ const experience: ExpItem[] = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative mx-auto max-w-[1100px] px-6 py-[180px] text-center">
+    <section id="experience" className="relative mx-auto max-w-[1100px] px-6 py-32 text-center">
       <motion.h2
         {...reveal()}
         className="text-[clamp(1.8rem,4vw,3rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-white"
@@ -308,7 +310,7 @@ export function Experience() {
       </motion.h2>
       <motion.p
         {...reveal(0.08)}
-        className="mx-auto mt-4 max-w-[520px] text-[15px] leading-[1.7] text-[#A0A0A0]"
+        className="mx-auto mt-5 max-w-[560px] text-lg leading-relaxed text-[#A1A1AA]"
       >
         Programs and roles where I practiced product thinking,
         teamwork, and execution.
@@ -319,27 +321,27 @@ export function Experience() {
           <motion.div
             key={e.title}
             {...reveal(0.06 + i * 0.06)}
-            className="rounded-[10px] border border-white/[0.05] bg-white/[0.03] p-7 backdrop-blur-sm transition-all duration-500 hover:border-white/[0.1] hover:bg-white/[0.05]"
+            className="rounded-xl border border-white/[0.08] bg-[#111111] p-8 transition-all duration-500 hover:border-white/[0.14] hover:bg-[#171717]"
           >
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
-                <h3 className="text-[17px] font-semibold tracking-[-0.01em] text-white">
+                <h3 className="text-lg font-semibold tracking-[-0.01em] text-white">
                   {e.title}
                 </h3>
-                <p className="mt-0.5 text-[13px] text-white/40">{e.org}</p>
+                <p className="mt-1 text-base text-[#A1A1AA]">{e.org}</p>
               </div>
               <div className="flex items-center gap-3">
                 <span className="tag">{e.tag}</span>
-                <span className="text-[12px] text-white/25">{e.date}</span>
+                <span className="text-base text-[#A1A1AA]">{e.date}</span>
               </div>
             </div>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-5 space-y-3">
               {e.bullets.map((b) => (
                 <li
                   key={b}
-                  className="flex items-start gap-2.5 text-[14px] leading-[1.65] text-white/60"
+                  className="flex items-start gap-3 text-base leading-relaxed text-[#A1A1AA]"
                 >
-                  <span className="mt-[7px] block h-[4px] w-[4px] shrink-0 rounded-full bg-white/20" />
+                  <span className="mt-[10px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#A1A1AA]/50" />
                   {b}
                 </li>
               ))}
@@ -357,39 +359,39 @@ export function Experience() {
 
 export function Resume() {
   return (
-    <section id="resume" className="relative mx-auto max-w-[1100px] px-6 pb-[100px]">
+    <section id="resume" className="relative mx-auto max-w-[1100px] px-6 pb-32">
       <motion.div
         {...reveal()}
-        className="rounded-[10px] border border-white/[0.05] bg-white/[0.03] p-8 backdrop-blur-sm"
+        className="rounded-xl border border-white/[0.08] bg-[#111111] p-8"
       >
-        <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-white/30">
+            <p className="text-base font-medium uppercase tracking-[0.2em] text-[#A1A1AA]">
               Resume
             </p>
-            <p className="mt-2 text-[17px] font-semibold text-white">
+            <p className="mt-3 text-xl font-semibold text-white">
               Education, experience, and skills at a glance.
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary">
               <span>Open PDF</span>
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <a href="/resume.pdf" download className="btn-ghost">
               Download
-              <FileText className="h-3.5 w-3.5" />
+              <FileText className="h-4 w-4" />
             </a>
           </div>
         </div>
-        <div className="mt-6 overflow-hidden rounded-[8px] border border-white/[0.05]">
+        <div className="mt-8 overflow-hidden rounded-xl border border-white/[0.08]">
           <object
             data="/resume.pdf"
             type="application/pdf"
             className="block h-[min(72vh,820px)] w-full"
             aria-label="Resume PDF"
           >
-            <p className="p-6 text-[14px] text-white/50">
+            <p className="p-8 text-base text-[#A1A1AA]">
               Your browser cannot display the PDF.{" "}
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="font-medium text-white underline">
                 Open it here
@@ -415,21 +417,21 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative mx-auto max-w-[1100px] px-6 pb-[100px] text-center">
+    <section id="contact" className="relative mx-auto max-w-[1100px] px-6 pb-32 text-center">
       <motion.p
         {...reveal()}
-        className="text-[11px] font-medium uppercase tracking-[0.25em] text-white/30"
+        className="text-base font-medium uppercase tracking-[0.2em] text-[#A1A1AA]"
       >
         Contact
       </motion.p>
       <motion.h2
         {...reveal(0.08)}
-        className="mx-auto mt-4 max-w-[640px] text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.2] tracking-[-0.03em] text-white"
+        className="mx-auto mt-5 max-w-[640px] text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.2] tracking-[-0.03em] text-white"
       >
         For opportunities, collaborations, or just to say hi.
       </motion.h2>
 
-      <div className="mt-12 grid grid-cols-12 gap-4 text-left">
+      <div className="mt-14 grid grid-cols-12 gap-4 text-left">
         {links.map((l, i) => (
           <motion.a
             key={l.label}
@@ -437,13 +439,13 @@ export function Contact() {
             target={l.label === "LinkedIn" ? "_blank" : undefined}
             rel={l.label === "LinkedIn" ? "noreferrer" : undefined}
             {...reveal(0.08 + i * 0.06)}
-            className="group col-span-12 rounded-[10px] border border-white/[0.05] bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-500 hover:border-white/[0.1] hover:bg-white/[0.06] md:col-span-4"
+            className="group col-span-12 rounded-xl border border-white/[0.08] bg-[#111111] p-7 transition-all duration-500 hover:border-white/[0.14] hover:bg-[#171717] md:col-span-4"
           >
-            <l.icon className="mb-4 h-5 w-5 text-white/20 transition-colors duration-300 group-hover:text-white/60" />
-            <p className="text-[11px] uppercase tracking-[0.2em] text-white/30">
+            <l.icon className="mb-4 h-6 w-6 text-[#A1A1AA]/60 transition-colors duration-300 group-hover:text-[#A1A1AA]" />
+            <p className="text-base uppercase tracking-[0.15em] text-[#A1A1AA]">
               {l.label}
             </p>
-            <p className="mt-1.5 text-[14px] font-medium text-white/80 transition-colors duration-300 group-hover:text-white">
+            <p className="mt-2 text-lg font-medium text-white/90 transition-colors duration-300 group-hover:text-white">
               {l.value}
             </p>
           </motion.a>
@@ -459,12 +461,12 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="mx-auto max-w-[1100px] border-t border-white/[0.05] px-6 py-10">
+    <footer className="mx-auto max-w-[1100px] border-t border-white/[0.08] px-6 py-10">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p className="text-[12px] text-white/25">
+        <p className="text-base text-[#A1A1AA]">
           &copy; {new Date().getFullYear()} Ibrahiim Muhamud
         </p>
-        <p className="text-[12px] text-white/15">
+        <p className="text-base text-[#A1A1AA]/50">
           Built in Redmond, WA
         </p>
       </div>

@@ -21,33 +21,48 @@ body {
   margin: 0;
   background: #000000;
   color: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.625;
 }
 
 ::selection {
   background: rgba(255, 255, 255, 0.15);
 }
 
+/* ═══════════════════════════════════════════════════════
+   DARK ELEVATION SYSTEM (Material Design)
+   ─────────────────────────────────────────────────────
+   Layer 0  (base)   : #000000
+   Layer 1  (surface): #111111
+   Layer 2  (raised) : #171717
+   Border (unified)  : rgba(255, 255, 255, 0.08)
+   ═══════════════════════════════════════════════════════ */
+
 /* ── Tag pill ────────────────────────────────────────── */
 .tag {
-  display: inline-block;
-  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
   line-height: 1;
-  letter-spacing: 0.06em;
-  padding: 5px 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #171717;
+  color: #A1A1AA;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
 }
 
-/* ── Button primary ──────────────────────────────────── */
+/* ── Button primary (48px min touch target) ──────────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 14px 32px;
+  min-height: 48px;
+  padding: 12px 32px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.01em;
   background: #FFFFFF;
@@ -67,18 +82,20 @@ body {
   transform: scale(0.97);
 }
 
-/* ── Button ghost ────────────────────────────────────── */
+/* ── Button ghost (48px min touch target) ────────────── */
 .btn-ghost {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 28px;
+  min-height: 48px;
+  padding: 12px 28px;
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #A1A1AA;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   text-decoration: none;
   transition:
     border-color 0.3s ease,
@@ -87,7 +104,7 @@ body {
 }
 
 .btn-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.04);
   color: #FFFFFF;
 }

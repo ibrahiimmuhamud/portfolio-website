@@ -21,7 +21,7 @@ export function Navbar() {
       className="pointer-events-none fixed top-0 left-0 z-50 w-full px-4 pt-4"
     >
       <nav
-        className="pointer-events-auto mx-auto flex h-[52px] max-w-[1100px] items-center justify-between rounded-full px-7"
+        className="pointer-events-auto mx-auto flex h-14 max-w-[1100px] items-center justify-between rounded-full px-6"
         style={{
           background: "rgba(17, 17, 17, 0.6)",
           backdropFilter: "blur(20px) saturate(1.6)",
@@ -32,17 +32,18 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="text-[13px] font-semibold tracking-[-0.01em] text-white"
+          className="flex min-h-[48px] items-center text-base font-semibold tracking-[-0.01em] text-white"
         >
           IM
         </Link>
 
-        <ul className="hidden items-center gap-[1.8em] md:flex">
+        {/* 48px touch target on each link via min-h + padding */}
+        <ul className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-[13px] text-white/50 transition-colors duration-300 hover:text-white"
+                className="flex min-h-[48px] items-center rounded-full px-4 text-base text-[#A1A1AA] transition-colors duration-300 hover:text-white"
               >
                 {link.label}
               </a>
@@ -50,24 +51,25 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-5">
+        {/* Social icons — 48px touch target via p-3 */}
+        <div className="flex items-center">
           <a
             href="https://www.linkedin.com/in/ibrahiimmuhamud/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="text-white/40 transition-colors duration-300 hover:text-white"
+            className="flex h-[48px] w-[48px] items-center justify-center rounded-full text-[#A1A1AA] transition-colors duration-300 hover:text-white"
           >
-            <Linkedin className="h-4 w-4" />
+            <Linkedin className="h-5 w-5" />
           </a>
           <a
             href="https://github.com/ibrahiimmuhamud"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
-            className="text-white/40 transition-colors duration-300 hover:text-white"
+            className="flex h-[48px] w-[48px] items-center justify-center rounded-full text-[#A1A1AA] transition-colors duration-300 hover:text-white"
           >
-            <Github className="h-4 w-4" />
+            <Github className="h-5 w-5" />
           </a>
         </div>
       </nav>

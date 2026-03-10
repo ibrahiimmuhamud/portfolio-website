@@ -13,7 +13,7 @@ export default function Hero() {
         <img
           src="/hero-bg.jpg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover scale-110"
+          className="absolute inset-0 h-full w-full scale-110 object-cover"
         />
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[60px]" />
         <div
@@ -30,17 +30,17 @@ export default function Hero() {
       {/* ── Content ── */}
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center justify-center px-6 text-center">
 
-        {/* Kicker — stagger index 0 */}
+        {/* Kicker */}
         <motion.span
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease, delay: 0 }}
-          className="mb-8 block text-[12px] font-medium uppercase tracking-[0.25em] text-white/40 md:text-[13px]"
+          className="mb-8 block text-base font-medium uppercase tracking-[0.2em] text-[#A1A1AA]"
         >
           Product Manager &middot; UW Informatics
         </motion.span>
 
-        {/* Headline — split-text stagger: line 1 at 0.1s, line 2 at 0.2s */}
+        {/* Headline — split-text stagger */}
         <h1 className="flex flex-col items-center justify-center">
           <motion.span
             initial={{ opacity: 0, y: 40 }}
@@ -60,22 +60,22 @@ export default function Hero() {
           </motion.span>
         </h1>
 
-        {/* Subtitle — stagger at 0.4s */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease, delay: 0.4 }}
-          className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed tracking-tight text-[#A0A0A0] md:text-2xl"
+          className="mx-auto mt-10 max-w-2xl text-xl font-light leading-relaxed text-[#A1A1AA] md:text-2xl"
         >
           Building intuitive experiences with real teams and real users.
         </motion.p>
 
-        {/* Buttons — stagger at 0.6s */}
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.6 }}
-          className="mt-12 flex items-center gap-5"
+          className="mt-14 flex flex-wrap items-center justify-center gap-5"
         >
           <a href="#projects" className="btn-primary group">
             <span>View my work</span>
@@ -85,12 +85,7 @@ export default function Hero() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
           <a href="/resume.pdf" className="btn-ghost">
@@ -98,14 +93,14 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Scroll line */}
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-20 flex flex-col items-center gap-2"
+          className="mt-24 flex flex-col items-center gap-3"
         >
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/20">
+          <span className="text-base uppercase tracking-[0.3em] text-[#A1A1AA]/50">
             Scroll
           </span>
           <div className="h-10 w-px bg-gradient-to-b from-white/20 to-transparent" />
