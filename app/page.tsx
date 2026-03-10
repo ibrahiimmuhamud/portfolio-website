@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
+import { Updates } from "@/components/updates";
 
 export default function Home() {
   return (
@@ -7,7 +8,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        {/* Next: updates/projects bento grid, about, resume, contact */}
+        <Updates />
+        {/* Next: about, resume, contact */}
       </main>
     </div>
   );
