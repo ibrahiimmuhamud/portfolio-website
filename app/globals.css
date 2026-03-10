@@ -1,89 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f8f9fa;
-  --foreground: #0b0f19;
-  --muted: rgba(11, 15, 25, 0.64);
-  --muted-2: rgba(11, 15, 25, 0.46);
-
-  --surface: rgba(255, 255, 255, 0.7);
-  --surface-2: rgba(255, 255, 255, 0.55);
-  --border: rgba(11, 15, 25, 0.12);
-
-  --linkedin: #0a66c2;
-  --github: #24292f;
-  --ms-blue: #0067b8;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-poppins), "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
-.dark {
-  --background: #0b0f19;
-  --foreground: #f8f9fa;
-  --muted: rgba(248, 249, 250, 0.68);
-  --muted-2: rgba(248, 249, 250, 0.46);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-2: rgba(255, 255, 255, 0.04);
-  --border: rgba(248, 249, 250, 0.12);
-
-  --github: #f8f9fa;
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: #000000;
+  color: #FFFFFF;
 }
 
-/* Microsoft AI-inspired, soft abstract background */
-.bg-wisps {
-  position: relative;
-  isolation: isolate;
+::selection {
+  background: rgba(255, 255, 255, 0.15);
 }
 
-.bg-wisps::before {
-  content: "";
-  position: absolute;
-  inset: -20vh -10vw;
-  z-index: -2;
-  background:
-    radial-gradient(900px 520px at 10% 10%, rgba(85, 165, 255, 0.35), transparent 60%),
-    radial-gradient(820px 560px at 85% 15%, rgba(182, 103, 255, 0.22), transparent 62%),
-    radial-gradient(900px 620px at 30% 92%, rgba(255, 164, 98, 0.22), transparent 60%),
-    radial-gradient(760px 540px at 80% 80%, rgba(92, 255, 205, 0.14), transparent 58%),
-    linear-gradient(180deg, var(--background), color-mix(in oklab, var(--background) 82%, #fff 18%));
-  filter: blur(10px) saturate(1.08);
-  opacity: 0.95;
+/* ── Tag pill ────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.dark .bg-wisps::before {
-  background:
-    radial-gradient(900px 520px at 10% 10%, rgba(85, 165, 255, 0.22), transparent 60%),
-    radial-gradient(820px 560px at 85% 15%, rgba(182, 103, 255, 0.18), transparent 62%),
-    radial-gradient(900px 620px at 30% 92%, rgba(255, 164, 98, 0.16), transparent 60%),
-    radial-gradient(760px 540px at 80% 80%, rgba(92, 255, 205, 0.12), transparent 58%),
-    linear-gradient(180deg, var(--background), color-mix(in oklab, var(--background) 88%, #05060a 12%));
+/* ── Button primary ──────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  background: #FFFFFF;
+  color: #000000;
+  text-decoration: none;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.bg-wisps::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.22;
-  mix-blend-mode: multiply;
-  background-image: radial-gradient(rgba(11, 15, 25, 0.4) 1px, transparent 0);
-  background-size: 22px 22px;
+.btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 40px rgba(255, 255, 255, 0.1);
 }
 
-.dark .bg-wisps::after {
-  opacity: 0.08;
-  mix-blend-mode: screen;
-  background-image: radial-gradient(rgba(248, 249, 250, 0.55) 1px, transparent 0);
+.btn-primary:active {
+  transform: scale(0.97);
 }
 
+/* ── Button ghost ────────────────────────────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+}
