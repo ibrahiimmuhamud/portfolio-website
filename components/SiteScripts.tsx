@@ -343,7 +343,7 @@ export default function SiteScripts() {
             p.x += p.vx;
             p.y += p.vy;
             p.rot += p.rotV;
-            if (frame > 55) p.opacity -= 0.013;
+            if (frame > 110) p.opacity -= 0.008;
             if (p.opacity <= 0 || p.y > canvas.height + 40) continue;
             alive = true;
 
