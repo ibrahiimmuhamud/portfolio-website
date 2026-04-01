@@ -264,10 +264,7 @@ export default function Home() {
               <Image src="/logos/microsoft.png" alt="Microsoft" width={50} height={50} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Aug 2025</span>
-            <p className="card-title">
-              CE&amp;S Summer Camp{" "}
-              <span style={{ fontSize: "0.7rem", background: "rgba(193,127,94,0.15)", color: "var(--accent)", borderRadius: "4px", padding: "0.1rem 0.4rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", verticalAlign: "middle" }}>Selected</span>
-            </p>
+            <p className="card-title">CE&amp;S Summer Camp</p>
             <p className="card-company">Microsoft · Redmond, WA</p>
             <ul className="card-bullets">
               <li>Networked with <strong>50+ professionals</strong> across CE&amp;S, Xbox, Azure, and AI/Copilot.</li>
