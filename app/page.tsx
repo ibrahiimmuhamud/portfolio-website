@@ -94,6 +94,27 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── Microsoft Discovery Intern ──────────────────────── */}
+      <div className="ms-announce-section reveal">
+        <div className="ms-announce-ticker">
+          <div className="ms-announce-ticker-inner">
+            <span>✦ MICROSOFT DISCOVERY PROGRAM · INCOMING INTERN · REDMOND, WA · SUMMER 2026 · MICROSOFT DISCOVERY PROGRAM · INCOMING INTERN · REDMOND, WA · SUMMER 2026 · </span>
+            <span>✦ MICROSOFT DISCOVERY PROGRAM · INCOMING INTERN · REDMOND, WA · SUMMER 2026 · MICROSOFT DISCOVERY PROGRAM · INCOMING INTERN · REDMOND, WA · SUMMER 2026 · </span>
+          </div>
+        </div>
+        <div className="ms-announce-card">
+          <div className="ms-announce-logo">
+            <Image src="/logos/microsoft-banner.png" alt="Microsoft" width={120} height={36} quality={100} style={{ objectFit: "contain" }} />
+          </div>
+          <div className="ms-announce-content">
+            <span className="ms-announce-label">Discovery Program · Summer 2026</span>
+            <p className="ms-announce-title">Incoming Microsoft Discovery Intern</p>
+            <p className="ms-announce-location">📍 Redmond, WA</p>
+          </div>
+          <span className="ms-announce-badge">Selected</span>
+        </div>
+      </div>
+
       {/* ── About ───────────────────────────────────────────── */}
       <section className="section about-section" id="about">
         <div className="section-tape section-tape--top sf-round">about me</div>
@@ -161,7 +182,7 @@ export default function Home() {
           {/* UW iSchool — primary */}
           <div className="bento-card bc-7 reveal" style={{ ["--delay" as string]: "0.05s" }}>
             <div className="logo-avatar--wide">
-              <Image src="/logos/uwischool-banner.jpg" alt="UW iSchool" width={160} height={32} />
+              <Image src="/logos/uwischool-banner.jpg" alt="UW iSchool" width={160} height={32} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Fall 2026 – Expected 2030</span>
             <p className="card-title">B.S. Informatics</p>
@@ -180,7 +201,7 @@ export default function Home() {
           {/* Bellevue College */}
           <div className="bento-card bc-5 reveal" style={{ ["--delay" as string]: "0.1s" }}>
             <div className="logo-avatar">
-              <Image src="/logos/bellevue.jpg" alt="Bellevue College" width={40} height={40} />
+              <Image src="/logos/bellevue.jpg" alt="Bellevue College" width={50} height={50} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">2024 – 2026</span>
             <p className="card-title">Associate of Arts, Running Start</p>
@@ -221,7 +242,7 @@ export default function Home() {
           {/* Computer Lab Assistant — BC */}
           <div className="bento-card bc-7 reveal" style={{ ["--delay" as string]: "0.05s" }}>
             <div className="logo-avatar">
-              <Image src="/logos/bellevue.jpg" alt="Bellevue College" width={40} height={40} />
+              <Image src="/logos/bellevue.jpg" alt="Bellevue College" width={50} height={50} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Sep 2025 – Present</span>
             <p className="card-title">Computer Lab Assistant</p>
@@ -239,8 +260,8 @@ export default function Home() {
 
           {/* Microsoft CE&S */}
           <div className="bento-card bc-5 reveal" style={{ ["--delay" as string]: "0.1s" }}>
-            <div className="logo-avatar">
-              <Image src="/logos/microsoft.png" alt="Microsoft" width={40} height={40} />
+            <div className="logo-avatar--wide">
+              <Image src="/logos/microsoft-banner.png" alt="Microsoft" width={130} height={30} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Aug 2025</span>
             <p className="card-title">
@@ -259,8 +280,8 @@ export default function Home() {
 
           {/* Paul G. Allen — Changemakers */}
           <div className="bento-card bc-5 reveal" style={{ ["--delay" as string]: "0.15s" }}>
-            <div className="logo-avatar">
-              <Image src="/logos/paulgallen.jpg" alt="Paul G. Allen School of CSE" width={40} height={40} style={{ objectFit: "contain" }} />
+            <div className="logo-avatar--wide">
+              <Image src="/logos/paulgallen-banner.png" alt="Paul G. Allen School of CSE" width={140} height={32} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Jul – Aug 2025</span>
             <p className="card-title">Changemakers in Computing</p>
@@ -279,8 +300,8 @@ export default function Home() {
 
           {/* Computing For All */}
           <div className="bento-card bc-7 reveal" style={{ ["--delay" as string]: "0.2s" }}>
-            <div className="logo-avatar">
-              <Image src="/logos/computingforall.png" alt="Computing For All" width={40} height={40} />
+            <div className="logo-avatar--wide">
+              <Image src="/logos/computingforall-banner.png" alt="Computing For All" width={140} height={32} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Jan 2025 – Jan 2026</span>
             <p className="card-title">Pre-Apprenticeship in Software Development</p>
@@ -299,7 +320,7 @@ export default function Home() {
           {/* Tamkeen Youth — full width, horizontal */}
           <div className="bento-card bc-12 bento-card--horizontal reveal" style={{ ["--delay" as string]: "0.25s" }}>
             <div className="logo-avatar" style={{ marginBottom: 0, flexShrink: 0 }}>
-              <Image src="/logos/tamkeen.png" alt="Tamkeen Youth" width={40} height={40} />
+              <Image src="/logos/tamkeen.png" alt="Tamkeen Youth" width={50} height={50} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <div className="bento-card-body">
               <span className="card-eyebrow">May 2022 – Present</span>
