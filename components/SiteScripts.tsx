@@ -273,66 +273,102 @@ export default function SiteScripts() {
       });
     });
 
-    /* ── Confetti on MS intern hover ────────────────────── */
+    /* ── Confetti on MS intern hover (canvas-based) ─────── */
     const announceSection = document.querySelector<HTMLElement>(".ms-announce-section");
     if (announceSection) {
       const COLORS = [
-        "#F2D5C4", "#C17F5E", "#D4956E", "#E6C3B1",
-        "#B5AFA8", "#8A8581", "#2C2A28", "#F5EEE4",
+        "#FF6B6B", "#FF8E53", "#FFC300", "#4ECDC4",
+        "#45B7D1", "#54A0FF", "#5F27CD", "#BB8FCE",
+        "#FF9FF3", "#82E0AA", "#FF6348", "#F8C471",
+        "#2ECC71", "#E74C3C", "#3498DB", "#9B59B6",
       ];
       let cooldown = false;
 
       announceSection.addEventListener("mouseenter", () => {
         if (cooldown) return;
         cooldown = true;
-        setTimeout(() => { cooldown = false; }, 1800);
+        setTimeout(() => { cooldown = false; }, 2200);
+
+        const canvas = document.createElement("canvas");
+        canvas.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:9996";
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext("2d")!;
 
         const rect = announceSection.getBoundingClientRect();
         const originX = rect.left + rect.width / 2;
-        const originY = rect.top + rect.height / 2;
+        const originY = rect.top + rect.height * 0.3;
 
-        for (let i = 0; i < 65; i++) {
-          setTimeout(() => {
-            const el = document.createElement("div");
-            const size = Math.random() * 7 + 3;
-            const isCircle = Math.random() > 0.45;
-            const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        type Piece = {
+          x: number; y: number;
+          vx: number; vy: number;
+          rot: number; rotV: number;
+          w: number; h: number;
+          color: string;
+          shape: "rect" | "circle" | "ribbon";
+          opacity: number;
+        };
 
-            el.style.cssText = [
-              "position:fixed",
-              "pointer-events:none",
-              "z-index:9996",
-              `width:${size}px`,
-              `height:${isCircle ? size : size * (Math.random() * 0.8 + 0.6)}px`,
-              `background:${color}`,
-              `border-radius:${isCircle ? "50%" : "2px"}`,
-              `left:${originX + (Math.random() - 0.5) * rect.width * 0.55}px`,
-              `top:${originY}px`,
-              "opacity:1",
-              "will-change:transform,opacity",
-            ].join(";");
-
-            document.body.appendChild(el);
-
-            const vx = (Math.random() - 0.5) * 11;
-            let vy = -(Math.random() * 9 + 4);
-            let x = 0, y = 0, rot = 0, opacity = 1;
-
-            const tick = () => {
-              vy += 0.28;         // gravity
-              vx > 0 ? 0 : 0;    // horizontal drag (none — keeps it lively)
-              x += vx;
-              y += vy;
-              rot += vx * 2.5;
-              opacity -= 0.017;
-              el.style.transform = `translate(${x}px,${y}px) rotate(${rot}deg)`;
-              el.style.opacity = String(Math.max(0, opacity));
-              if (opacity > 0) requestAnimationFrame(tick);
-              else el.remove();
-            };
-            requestAnimationFrame(tick);
-          }, Math.random() * 280);
+        const pieces: Piece[] = [];
+        for (let i = 0; i < 160; i++) {
+          const angle = (Math.random() - 0.5) * Math.PI * 1.8 - Math.PI / 2;
+          const speed = Math.random() * 16 + 5;
+          const w = Math.random() * 10 + 4;
+          const shapeRoll = Math.random();
+          pieces.push({
+            x: originX + (Math.random() - 0.5) * rect.width * 0.5,
+            y: originY,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            rot: Math.random() * Math.PI * 2,
+            rotV: (Math.random() - 0.5) * 0.35,
+            w,
+            h: shapeRoll > 0.65 ? w * (Math.random() * 0.4 + 0.25) : w,
+            color: COLORS[Math.floor(Math.random() * COLORS.length)],
+            shape: shapeRoll > 0.65 ? "rect" : shapeRoll > 0.3 ? "circle" : "ribbon",
+            opacity: 1,
+          });
         }
+
+        let frame = 0;
+        const render = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          frame++;
+          let alive = false;
+
+          for (const p of pieces) {
+            p.vy += 0.38;
+            p.vx *= 0.992;
+            p.x += p.vx;
+            p.y += p.vy;
+            p.rot += p.rotV;
+            if (frame > 55) p.opacity -= 0.013;
+            if (p.opacity <= 0 || p.y > canvas.height + 40) continue;
+            alive = true;
+
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, p.opacity);
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.fillStyle = p.color;
+
+            if (p.shape === "circle") {
+              ctx.beginPath();
+              ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
+              ctx.fill();
+            } else if (p.shape === "ribbon") {
+              ctx.fillRect(-p.w * 0.15, -p.w, p.w * 0.3, p.w * 2);
+            } else {
+              ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+            }
+            ctx.restore();
+          }
+
+          if (alive) requestAnimationFrame(render);
+          else canvas.remove();
+        };
+        requestAnimationFrame(render);
       });
     }
 
