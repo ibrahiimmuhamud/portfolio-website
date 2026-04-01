@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </div>
         <div className="ms-announce-card">
-          <div className="ms-announce-logo">
+          <div className="ms-announce-logo" style={{ background: "#000" }}>
             <Image src="/logos/microsoft-banner.png" alt="Microsoft" width={120} height={36} quality={100} style={{ objectFit: "contain" }} />
           </div>
           <div className="ms-announce-content">
@@ -260,7 +260,7 @@ export default function Home() {
 
           {/* Microsoft CE&S */}
           <div className="bento-card bc-5 reveal" style={{ ["--delay" as string]: "0.1s" }}>
-            <div className="logo-avatar--wide">
+            <div className="logo-avatar--wide" style={{ background: "#000" }}>
               <Image src="/logos/microsoft-banner.png" alt="Microsoft" width={130} height={30} quality={100} style={{ objectFit: "contain" }} />
             </div>
             <span className="card-eyebrow">Aug 2025</span>
