@@ -273,6 +273,69 @@ export default function SiteScripts() {
       });
     });
 
+    /* ── Confetti on MS intern hover ────────────────────── */
+    const announceSection = document.querySelector<HTMLElement>(".ms-announce-section");
+    if (announceSection) {
+      const COLORS = [
+        "#F2D5C4", "#C17F5E", "#D4956E", "#E6C3B1",
+        "#B5AFA8", "#8A8581", "#2C2A28", "#F5EEE4",
+      ];
+      let cooldown = false;
+
+      announceSection.addEventListener("mouseenter", () => {
+        if (cooldown) return;
+        cooldown = true;
+        setTimeout(() => { cooldown = false; }, 1800);
+
+        const rect = announceSection.getBoundingClientRect();
+        const originX = rect.left + rect.width / 2;
+        const originY = rect.top + rect.height / 2;
+
+        for (let i = 0; i < 65; i++) {
+          setTimeout(() => {
+            const el = document.createElement("div");
+            const size = Math.random() * 7 + 3;
+            const isCircle = Math.random() > 0.45;
+            const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+            el.style.cssText = [
+              "position:fixed",
+              "pointer-events:none",
+              "z-index:9996",
+              `width:${size}px`,
+              `height:${isCircle ? size : size * (Math.random() * 0.8 + 0.6)}px`,
+              `background:${color}`,
+              `border-radius:${isCircle ? "50%" : "2px"}`,
+              `left:${originX + (Math.random() - 0.5) * rect.width * 0.55}px`,
+              `top:${originY}px`,
+              "opacity:1",
+              "will-change:transform,opacity",
+            ].join(";");
+
+            document.body.appendChild(el);
+
+            const vx = (Math.random() - 0.5) * 11;
+            let vy = -(Math.random() * 9 + 4);
+            let x = 0, y = 0, rot = 0, opacity = 1;
+
+            const tick = () => {
+              vy += 0.28;         // gravity
+              vx > 0 ? 0 : 0;    // horizontal drag (none — keeps it lively)
+              x += vx;
+              y += vy;
+              rot += vx * 2.5;
+              opacity -= 0.017;
+              el.style.transform = `translate(${x}px,${y}px) rotate(${rot}deg)`;
+              el.style.opacity = String(Math.max(0, opacity));
+              if (opacity > 0) requestAnimationFrame(tick);
+              else el.remove();
+            };
+            requestAnimationFrame(tick);
+          }, Math.random() * 280);
+        }
+      });
+    }
+
     /* ── Parallax deco rings ─────────────────────────────── */
     const rings = document.querySelectorAll<HTMLElement>(".deco-ring");
     const onScrollParallax = () => {
