@@ -77,16 +77,16 @@ export default function Home() {
       {/* ── Stats strip ─────────────────────────────────────── */}
       <div className="stats-strip">
         <div className="stat-item">
-          <span className="stat-num sf-round" data-target="20" data-suffix="k+">0k+</span>
-          <span className="stat-label">Students served</span>
+          <span className="stat-num sf-round" data-target="3" data-suffix="+">0+</span>
+          <span className="stat-label">Years of leadership</span>
         </div>
         <div className="stat-item">
-          <span className="stat-num sf-round" data-target="30" data-suffix="%">0%</span>
-          <span className="stat-label">Lab downtime cut</span>
+          <span className="stat-num sf-round" data-target="100" data-suffix="+">0+</span>
+          <span className="stat-label">Hrs of dev training</span>
         </div>
         <div className="stat-item">
           <span className="stat-num sf-round" data-target="5" data-suffix="+">0+</span>
-          <span className="stat-label">Programs & roles</span>
+          <span className="stat-label">Programs & internships</span>
         </div>
         <div className="stat-item">
           <span className="stat-num sf-round" data-target="2026" data-suffix="">0</span>
