@@ -28,14 +28,14 @@ export default function SiteScripts() {
     const onMouseMove = (e: MouseEvent) => {
       mx = e.clientX;
       my = e.clientY;
-      dot.style.transform = `translate(${mx}px, ${my}px)`;
+      dot.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
     };
     document.addEventListener("mousemove", onMouseMove);
 
     const animateRing = () => {
       rx += (mx - rx) * 0.12;
       ry += (my - ry) * 0.12;
-      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+      ring.style.transform = `translate(${rx - 16}px, ${ry - 16}px)`;
       requestAnimationFrame(animateRing);
     };
     animateRing();
