@@ -17,6 +17,7 @@ export default function Home() {
           <a href="#education">education</a>
           <a href="#experience">experience</a>
           <a href="#projects">projects</a>
+          <a href="#contact">contact</a>
           <a
             href="/resume.pdf"
             target="_blank"
@@ -33,42 +34,50 @@ export default function Home() {
         <canvas id="hero-canvas" />
         <div className="deco-ring deco-ring-1" />
         <div className="deco-ring deco-ring-2" />
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
 
         <div className="hero-content">
-          <p className="hero-label sf-round">Aspiring Product Manager</p>
+          <div className="hero-left">
+            <p className="hero-label sf-round">Aspiring Product Manager</p>
+            <h1 className="hero-name">
+              Ibrahiim
+              <br />
+              <em>Muhamud.</em>
+            </h1>
+            <p className="hero-sub sf-round" id="typewriter" />
+          </div>
 
-          <h1 className="hero-name">
-            Ibrahiim
-            <br />
-            <em>Muhamud.</em>
-          </h1>
-
-          <p className="hero-sub sf-round" id="typewriter" />
-
-          {/* PM Brief card */}
-          <div className="hero-brief">
-            <div className="brief-bar">
-              <span className="b-dot b-red" />
-              <span className="b-dot b-yellow" />
-              <span className="b-dot b-green" />
-              <span className="brief-title">ibrahiim@uw ~ brief.md</span>
-            </div>
-            <div className="brief-body">
-              <p>
-                <span className="b-prompt">$</span> cat about.txt
-              </p>
-              <p className="b-out">school : UW iSchool, Informatics &#39;29</p>
-              <p className="b-out">now    : Running Start @ Bellevue College</p>
-              <p className="b-out">focus  : users × business × engineering</p>
-              <p className="b-out">based  : Redmond, WA</p>
-              <p>
-                <span className="b-prompt">$</span> echo $STATUS
-              </p>
-              <p className="b-out">
-                Open to PM internships <span className="b-blink">▌</span>
-              </p>
+          <div className="hero-right">
+            {/* PM Brief card */}
+            <div className="hero-brief">
+              <div className="brief-bar">
+                <span className="b-dot b-red" />
+                <span className="b-dot b-yellow" />
+                <span className="b-dot b-green" />
+                <span className="brief-title">ibrahiim@uw ~ brief.md</span>
+              </div>
+              <div className="brief-body">
+                <p>
+                  <span className="b-prompt">$</span> cat about.txt
+                </p>
+                <p className="b-out">school : UW iSchool, Informatics &#39;29</p>
+                <p className="b-out">now    : Running Start @ Bellevue College</p>
+                <p className="b-out">focus  : users × business × engineering</p>
+                <p className="b-out">based  : Redmond, WA</p>
+                <p>
+                  <span className="b-prompt">$</span> echo $STATUS
+                </p>
+                <p className="b-out">
+                  Open to PM internships <span className="b-blink">▌</span>
+                </p>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div className="hero-scroll-hint">
+          <i className="fa-solid fa-chevron-down" />
         </div>
 
         <div className="torn-bottom" />
@@ -119,52 +128,84 @@ export default function Home() {
       <section className="section about-section" id="about">
         <div className="section-tape section-tape--top sf-round">about me</div>
 
-        <div className="about-card reveal">
-          <div className="paperclip" />
-          <h2 className="section-title">Hey, I&apos;m Ibrahiim.</h2>
-          <p>
-            I&apos;m completing both a high school diploma and an Associate of
-            Arts at <strong>Bellevue College</strong> through Running Start.
-            Next fall I join the <strong>University of Washington iSchool</strong>{" "}
-            as an <strong>Informatics direct admit</strong>, focused on product
-            management and human-centered design.
-          </p>
-          <p>
-            I&apos;ve worked as a{" "}
-            <strong>Computer Lab Assistant at Bellevue College</strong>, serving
-            20k+ students, and was selected for{" "}
-            <strong>Changemakers in Computing at the Paul G. Allen School</strong>{" "}
-            and <strong>Microsoft&apos;s CE&amp;S Summer Camp</strong>. I&apos;m
-            drawn to product because it sits at the intersection of users,
-            business, and engineering — and I care about making technology that
-            actually feels human.
-          </p>
-          <p>
-            Originally from <strong>Redmond, WA</strong>. I&apos;ve led
-            social media and community work at Tamkeen Youth, and completed a
-            pre-apprenticeship in software development at Computing For All.
-          </p>
+        <div className="about-grid">
+          {/* Bio card */}
+          <div className="about-card reveal">
+            <div className="paperclip" />
+            <h2 className="section-title">Hey, I&apos;m Ibrahiim.</h2>
+            <p>
+              I&apos;m completing both a high school diploma and an Associate of
+              Arts at <strong>Bellevue College</strong> through Running Start.
+              Next fall I join the <strong>University of Washington iSchool</strong>{" "}
+              as an <strong>Informatics direct admit</strong>, focused on product
+              management and human-centered design.
+            </p>
+            <p>
+              I&apos;ve worked as a{" "}
+              <strong>Computer Lab Assistant at Bellevue College</strong>, serving
+              20k+ students, and was selected for{" "}
+              <strong>Changemakers in Computing at the Paul G. Allen School</strong>{" "}
+              and <strong>Microsoft&apos;s CE&amp;S Summer Camp</strong>. I&apos;m
+              drawn to product because it sits at the intersection of users,
+              business, and engineering — and I care about making technology that
+              actually feels human.
+            </p>
+            <p>
+              Originally from <strong>Redmond, WA</strong>. I&apos;ve led
+              social media and community work at Tamkeen Youth, and completed a
+              pre-apprenticeship in software development at Computing For All.
+            </p>
 
-          <div className="skills-block">
-            <p className="skills-label sf-round">tools &amp; skills</p>
-            <div className="tag-row">
-              <span className="tag"><i className="fa-brands fa-figma" /> Figma</span>
-              <span className="tag">Product Thinking</span>
-              <span className="tag">User Research</span>
-              <span className="tag"><i className="fa-brands fa-react" /> React</span>
-              <span className="tag">Next.js</span>
-              <span className="tag"><i className="fa-brands fa-python" /> Python</span>
+            <div className="skills-block">
+              <p className="skills-label sf-round">tools &amp; skills</p>
+              <div className="tag-row">
+                <span className="tag"><i className="fa-brands fa-figma" /> Figma</span>
+                <span className="tag">Product Thinking</span>
+                <span className="tag">User Research</span>
+                <span className="tag"><i className="fa-brands fa-react" /> React</span>
+                <span className="tag">Next.js</span>
+                <span className="tag"><i className="fa-brands fa-python" /> Python</span>
+              </div>
+              <div className="tag-row" style={{ marginTop: "0.4rem" }}>
+                <span className="tag">Prototyping</span>
+                <span className="tag">Roadmapping</span>
+                <span className="tag">JavaScript</span>
+                <span className="tag">HTML / CSS</span>
+                <span className="tag">Data Analysis</span>
+              </div>
             </div>
-            <div className="tag-row" style={{ marginTop: "0.4rem" }}>
-              <span className="tag">Prototyping</span>
-              <span className="tag">Roadmapping</span>
-              <span className="tag">JavaScript</span>
-              <span className="tag">HTML / CSS</span>
-              <span className="tag">Data Analysis</span>
-            </div>
+
+            <p className="about-sig">— Ibrahiim, Redmond WA</p>
           </div>
 
-          <p className="about-sig">— Ibrahiim, Redmond WA</p>
+          {/* Profile card */}
+          <div className="about-profile reveal" style={{ ["--delay" as string]: "0.1s" }}>
+            <div className="profile-avatar">IM</div>
+            <p className="profile-name sf-round">Ibrahiim Muhamud</p>
+            <p className="profile-role">Aspiring Product Manager</p>
+            <div className="profile-divider" />
+            <div className="profile-facts">
+              <div className="pf-item">
+                <span className="pf-icon">📍</span>
+                <span>Redmond, WA</span>
+              </div>
+              <div className="pf-item">
+                <span className="pf-icon">🎓</span>
+                <span>UW iSchool, Informatics &rsquo;30</span>
+              </div>
+              <div className="pf-item">
+                <span className="pf-icon">🏢</span>
+                <span>Incoming Microsoft Discovery Intern</span>
+              </div>
+              <div className="pf-item">
+                <span className="pf-icon">✉️</span>
+                <span>Open to PM opportunities</span>
+              </div>
+            </div>
+            <a href="/resume.pdf" target="_blank" rel="noopener" className="profile-resume sf-round">
+              <i className="fa-solid fa-file-lines" /> view résumé
+            </a>
+          </div>
         </div>
       </section>
 
@@ -400,30 +441,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Footer ──────────────────────────────────────────── */}
-      <footer className="site-footer">
-        <div className="footer-inner">
-          <p className="footer-name sf-round">Ibrahiim Muhamud</p>
-          <p className="footer-tagline">
-            Always open to connecting about PM internships, product
-            collaborations, or just talking about building things people
-            actually use.
+      {/* ── Contact CTA ──────────────────────────────────────── */}
+      <section className="contact-section" id="contact">
+        <div className="contact-inner reveal">
+          <p className="contact-eyebrow sf-round">✦ get in touch</p>
+          <h2 className="contact-heading">
+            Let&apos;s build<br /><em>something great.</em>
+          </h2>
+          <p className="contact-sub">
+            Whether it&apos;s a PM role, a collaboration, or just a good
+            conversation — I&apos;m always open to connecting.
           </p>
-          <div className="footer-links">
-            <a href="mailto:ibrahiimmmedinaacademy@gmail.com">
-              <i className="fa-solid fa-envelope" /> email
+          <div className="contact-actions">
+            <a
+              href="mailto:ibrahiimmmedinaacademy@gmail.com"
+              className="contact-btn-primary sf-round"
+            >
+              <i className="fa-solid fa-envelope" /> say hello
             </a>
-            <span>·</span>
-            <a href="https://github.com/ibrahiimmuhamud" target="_blank" rel="noopener">
-              <i className="fa-brands fa-github" /> github
-            </a>
-            <span>·</span>
-            <a href="https://www.linkedin.com/in/ibrahiimmuhamud/" target="_blank" rel="noopener">
+            <a
+              href="https://www.linkedin.com/in/ibrahiimmuhamud/"
+              target="_blank"
+              rel="noopener"
+              className="contact-btn-secondary sf-round"
+            >
               <i className="fa-brands fa-linkedin" /> linkedin
             </a>
+            <a
+              href="https://github.com/ibrahiimmuhamud"
+              target="_blank"
+              rel="noopener"
+              className="contact-btn-secondary sf-round"
+            >
+              <i className="fa-brands fa-github" /> github
+            </a>
           </div>
-          <p className="footer-credit sf-round">built in Redmond, WA ✦</p>
         </div>
+      </section>
+
+      {/* ── Footer ──────────────────────────────────────────── */}
+      <footer className="site-footer">
+        <p className="footer-credit sf-round">
+          Ibrahiim Muhamud · built in Redmond, WA · 2026 ✦
+        </p>
       </footer>
 
       <SiteScripts />
