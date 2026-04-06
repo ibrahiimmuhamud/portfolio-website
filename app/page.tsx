@@ -61,7 +61,7 @@ export default function Home() {
                 <p>
                   <span className="b-prompt">$</span> cat about.txt
                 </p>
-                <p className="b-out">school : UW iSchool, Informatics &#39;29</p>
+                <p className="b-out">school : UW iSchool, Informatics &#39;28</p>
                 <p className="b-out">now    : Running Start @ Bellevue College</p>
                 <p className="b-out">focus  : users × business × engineering</p>
                 <p className="b-out">based  : Redmond, WA</p>
@@ -191,7 +191,7 @@ export default function Home() {
               </div>
               <div className="pf-item">
                 <span className="pf-icon">🎓</span>
-                <span>UW iSchool, Informatics &rsquo;30</span>
+                <span>UW iSchool, Informatics &rsquo;28</span>
               </div>
               <div className="pf-item">
                 <span className="pf-icon">🏢</span>
@@ -225,7 +225,7 @@ export default function Home() {
             <div className="logo-avatar--wide">
               <Image src="/logos/uwischool-banner.jpg" alt="UW iSchool" width={160} height={32} quality={100} style={{ objectFit: "contain" }} />
             </div>
-            <span className="card-eyebrow">Fall 2026 – Expected 2030</span>
+            <span className="card-eyebrow">Fall 2026 – Expected 2028</span>
             <p className="card-title">B.S. Informatics</p>
             <p className="card-company">University of Washington Information School · Seattle, WA</p>
             <ul className="card-bullets">
@@ -454,7 +454,7 @@ export default function Home() {
           </p>
           <div className="contact-actions">
             <a
-              href="mailto:ibrahiimmmedinaacademy@gmail.com"
+              href="mailto:ibrahiimmuhamud@gmail.com"
               className="contact-btn-primary sf-round"
             >
               <i className="fa-solid fa-envelope" /> say hello
